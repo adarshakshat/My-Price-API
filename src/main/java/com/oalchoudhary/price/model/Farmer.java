@@ -1,5 +1,6 @@
 package com.oalchoudhary.price.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -29,7 +30,7 @@ public class Farmer {
     private String name;
     @NotBlank
     private String whatsapp_number;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "farmer",
             cascade = CascadeType.ALL
     )

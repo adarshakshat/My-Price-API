@@ -1,4 +1,5 @@
 package com.oalchoudhary.price.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -32,6 +33,7 @@ public class Product  {
 
     @NotBlank
     private String stock;
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name="farmer_id")
     private Farmer farmer;

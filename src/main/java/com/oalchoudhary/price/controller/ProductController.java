@@ -19,7 +19,7 @@ public class ProductController {
     FarmerRepository farmerRepository;
     //returns all the products, this is automatically done by spring
     @Autowired
-    private ListingController listingController;
+    private ListingRepository listingRepository;
     @GetMapping("/products")
     public List<Product> getAllProduct(){
         return productRepository.findAll();
@@ -34,7 +34,7 @@ public class ProductController {
     @ResponseBody
     public List<Listing> getlisting(){
         List <Listing> listings = new ArrayList<>();
-        listings = listingController.getlisting();
+        listings = listingRepository.getlisting();
         return listings;
     }
 
