@@ -1,6 +1,7 @@
 package com.oalchoudhary.price.controller;
 import com.oalchoudhary.price.model.Listing;
 import com.oalchoudhary.price.repository.FarmerRepository;
+import com.oalchoudhary.price.repository.ListingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +21,14 @@ public class ProductController {
     //returns all the products, this is automatically done by spring
     @Autowired
     private ListingRepository listingRepository;
+
+    /*
     @GetMapping("/products")
     public List<Product> getAllProduct(){
         return productRepository.findAll();
     }
+
+    */
     /*This is to create a product, spring provides us a function save*/
     @PostMapping("/products")
     public Product createProduct(@Valid @RequestBody Product product) {

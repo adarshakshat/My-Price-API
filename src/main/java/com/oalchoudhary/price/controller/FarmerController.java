@@ -28,6 +28,10 @@ public class FarmerController {
         return farmerRepository.findById(farmerId)
                 .orElseThrow(()->new ResourceNotFoundException("Farmer","id",farmerId));
     }
+    @GetMapping("/farmers/details/{phonenumber}")
+    public List<Farmer> getFarmerByPhoneNumber(@PathVariable(value = "phonenumber")String phoneNumber){
+        return farmerRepository.findByPhone_number(phoneNumber);
+    }
 
     @PutMapping("farmer/{id}")
     public Farmer updateFarmer(@PathVariable (value = "id")Long farmerId,

@@ -1,4 +1,4 @@
-package com.oalchoudhary.price.controller;
+package com.oalchoudhary.price.repository;
 import com.oalchoudhary.price.model.Farmer;
 import com.oalchoudhary.price.model.Listing;
 import com.oalchoudhary.price.model.Product;

@@ -2,19 +2,24 @@ package com.oalchoudhary.price.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.scheduling.annotation.Async;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 @Entity
 @Table(name = "farmers")
 @EntityListeners(AuditingEntityListener.class)
+
+
 public class Farmer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -101,7 +106,8 @@ public class Farmer {
     public void setWhatsapp_number(String whatsapp_number) {
         this.whatsapp_number = whatsapp_number;
     }
-
+   // @Async
+   // Future <List<Farmer>> findByPhone_Number(String phone_number);
 
 
 
