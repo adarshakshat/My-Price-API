@@ -14,6 +14,4 @@ import java.util.Optional;
 public interface FarmerRepository extends JpaRepository<Farmer, Long> {
     @Query("select u from Farmer u where u.phone_number = ?1")
     List<Farmer> findByPhone_number(String phone_number);
-
-
 }

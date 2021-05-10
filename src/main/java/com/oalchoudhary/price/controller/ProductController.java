@@ -21,14 +21,6 @@ public class ProductController {
     //returns all the products, this is automatically done by spring
     @Autowired
     private ListingRepository listingRepository;
-
-    /*
-    @GetMapping("/products")
-    public List<Product> getAllProduct(){
-        return productRepository.findAll();
-    }
-
-    */
     /*This is to create a product, spring provides us a function save*/
     @PostMapping("/products")
     public Product createProduct(@Valid @RequestBody Product product) {
@@ -42,10 +34,6 @@ public class ProductController {
         listings = listingRepository.getlisting();
         return listings;
     }
-
-    /* Newly copied from URL
-    https://www.javaguides.net/2019/08/spring-boot-jpa-hibernate-one-to-many-example-tutorial.html
-     */
     @PostMapping("farmers/{farmerId}/products/{productId}")
     public Product CreateProduct(@PathVariable(value = "farmerId")Long farmerId,
                                  @Valid @RequestBody Product product) throws ResourceNotFoundException{

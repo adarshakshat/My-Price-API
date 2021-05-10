@@ -33,7 +33,7 @@ public class FarmerController {
         return farmerRepository.findByPhone_number(phoneNumber);
     }
 
-    @PutMapping("farmer/{id}")
+    @PutMapping("/farmers/{id}")
     public Farmer updateFarmer(@PathVariable (value = "id")Long farmerId,
                         @Valid @RequestBody Farmer farmerDetails){
         Farmer farmer = farmerRepository.findById(farmerId)
@@ -48,7 +48,7 @@ public class FarmerController {
         return updatedFarmer;
 
     }
-    @DeleteMapping
+    @DeleteMapping("/farmers/delete/{id}")
     public ResponseEntity<?> deleteFarmer(@PathVariable(value = "id")Long farmerId){
         Farmer farmer = farmerRepository.findById(farmerId)
                 .orElseThrow(()->new ResourceNotFoundException("Farmer","id",farmerId));
