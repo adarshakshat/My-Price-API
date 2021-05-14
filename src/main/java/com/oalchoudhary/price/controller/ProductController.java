@@ -42,7 +42,6 @@ public class ProductController {
             return productRepository.save(product);
         }).orElseThrow(()->new ResourceNotFoundException("product","id",product));
     }
-
     /* This part is to search products by id, Exception hanlding is also done*/
     @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable(value = "id") Long productId) {
@@ -54,10 +53,8 @@ public class ProductController {
                            @Valid @RequestBody Product productDetails) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
-
         product.setTitle(productDetails.getTitle());
         product.setPrice(productDetails.getPrice());
-
         Product updatedProduct = productRepository.save(product);
         return updatedProduct;
     }
